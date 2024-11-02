@@ -79,7 +79,7 @@ class Dev(Configuration):
         "level": "DEBUG",
     },
 }
-DJANGO_ADMINS="Ben Shaw,ben@example.com;Leo Lucio,leo@example.com"
+    DJANGO_ADMINS="Ben Shaw,ben@example.com;Leo Lucio,leo@example.com"
 
     # Application definition
 
@@ -186,6 +186,13 @@ DJANGO_ADMINS="Ben Shaw,ben@example.com;Leo Lucio,leo@example.com"
     # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
     DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+    PASSWORD_HASHERS = [
+        'django.contrib.auth.hashers.Argon2PasswordHasher',
+        'django.contrib.auth.hashers.PBKDF2PasswordHasher',
+        'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
+        'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
+]
 
 
 class Prod(Dev):
